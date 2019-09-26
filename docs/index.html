@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="ja">
     <head>
@@ -22,17 +23,34 @@
         </div>
         <script>
             // TODO0 ここに設定情報を貼り付ける  
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDp9n42I7cm3Up4Pi4HyGgVNDyVXSxn3s0",
+    authDomain: "syspro-2019-2.firebaseapp.com",
+    databaseURL: "https://syspro-2019-2.firebaseio.com",
+    projectId: "syspro-2019-2",
+    storageBucket: "syspro-2019-2.appspot.com",
+    messagingSenderId: "522969756711",
+    appId: "1:522969756711:web:a239f2c96e4fcb5b314a02"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
             
             // データベースの参照を準備
             var ledRef = firebase.firestore().collection('led')
         
-            // TODO1 送信ボタンが押された時の処理
-            
+            // TODO1 送信ボタンが押された時の処理            
             $('#led-on').click(function() {
 		    // {led: "ON"}を送信
+		ledRef.add({
+		    led: "ON"
+		});
             });
             $('#led-off').click(function() {
 		    // {led: "OFF"}を送信
+                ledRef.add({
+		    led: "OFF"
+                });
             });
 
         </script>
